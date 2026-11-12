@@ -1,0 +1,186 @@
+/* Todo o código */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pega o HTML em si */
+:root {
+    --text-color: white;
+    --bg-url: url(./images/gradiente2.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --sociallink-color: rgba(255, 255, 255, 0.2);
+    --switch-img: url(./images/lua.png);
+}
+
+/* Light Mode */
+.light {
+    --text-color: black;
+    --bg-url: url(./images/gradienteLight.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.09);
+    --surface-color-hover: rgba(255, 255, 255, 0.02);
+    --sociallink-color: rgba(0, 0, 0, 0.1);
+    --switch-img: url(./images/nascer-do-sol.png);
+}
+
+/* Imagem de fundo */
+body {
+    background: var(--bg-url) no-repeat left center/cover;
+    height: 130vh;
+}
+
+/* Fonte da página e cor */
+body * {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+
+/* Todo o conteúdo */
+#container {
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+/* Perfil */
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+}
+
+#profile p {
+    margin-top: 8px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* Switch para o Light e Dark mode */
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: white var(--switch-img) no-repeat center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+    animation: slide-back 0.3s;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--sociallink-color);
+}
+
+.light #switch button {
+    animation: slide-in 0.4s forwards;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Links */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur;
+    -webkit-backdrop-filter: blur;
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* Links Sociais */
+#social-links {
+    display: flex;
+    padding: 24px 0;
+    font-size: 24px;
+    justify-content: center;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+#social-links a:hover {
+    background: var(--sociallink-color);
+}
+
+/* Rodapé */
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
+}
